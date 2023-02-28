@@ -1,1 +1,0 @@
-web: gunicorn personality_traits.wsgi --log-file -
