@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OCEAN Trait Sliders</title>
+</head>
+<body>
+    <h1>OCEAN Trait Sliders</h1>
+    <form method="POST">
+    {% csrf_token %}
+    {% for trait, value in trait_values.items %}
+        <label>{{ trait }}</label>
+        <input type="range" min="1" max="100" value="{{ value }}" name="{{ trait }}">
+        <span id="{{ trait }}">{{ value }}</span><br>
+    {% endfor %}
+    <br>
+    <button type="submit">Get OCEAN Trait Analysis</button>
+    </form>
+    {% if output %}
+    <h2>Analysis:</h2>
+    <p>{{ output }}</p>
+    {% endif %}
+</body>
+</html>
