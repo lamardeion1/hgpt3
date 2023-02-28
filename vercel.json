@@ -1,0 +1,23 @@
+{
+    "builds": [
+      {
+        "src": "personality_traits/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "personality_traits/wsgi.py"
+      }
+    ],
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "personality_traits.settings"
+    }
+  }
+  
+  
